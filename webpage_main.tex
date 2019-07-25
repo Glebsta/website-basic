@@ -1,0 +1,474 @@
+\documentclass[12pt]{article}
+\usepackage[mathscr]{eucal}
+\usepackage{epsfig,amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{hhline}
+%\usepackage{relsize}
+\usepackage{cite}
+\usepackage{psfrag}
+\usepackage{mathrsfs} 
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{mathrsfs} 
+\usepackage{caption}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+%\tightenlines
+\topmargin -2.2cm
+\textheight 24.cm
+\textwidth 170mm
+\hoffset -20mm
+
+
+
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+
+
+\def\fd{{\phantom{\dagger}}}
+\def\bbI{{\mathbb I}}
+\def\gp{\widetilde{g_\perp}}
+\def\gpa{\widetilde{g_\parallel}}
+\def\ggp{g_\perp}
+\def\ggpa{g_\parallel}
+\def\Jb{\bar{J}}
+\def\Ib{\bar{I}}
+\def\Kb{\bar{K}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bdm{\begin{displaymath}}
+\def\edm{\end{displaymath}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\nn{\nonumber\\}
+\def\up{\uparrow}
+\def\da{\downarrow}
+\def\sgn{{\rm sgn}}
+\def\eps{\epsilon}
+\def\r#1{(\ref{#1})}
+\def\phib{\skew5\bar\phi}
+\def\Phib{\bar\Phi}
+\def\psib{\skew5\bar\psi}
+
+\def\zetab{\bar\zeta}
+\def\qb{{\bar q}}
+\def\pb{{\bar p}}
+\def\zb{{\bar z}}
+\def\wb{{\bar w}}
+\def\ab{{\bar a}}
+\def\partialb{{\bar\partial}}
+\def\sb{{\bar s}}
+\def\s{\sigma}
+\def\m{\mu}
+\def\bra#1{\langle #1 |}
+\def\ket#1{|#1\rangle}
+\def\ri{{\rm i}}
+\def\half{\textstyle\frac{1}{2}}
+
+\def\Xint#1{\mathchoice
+    {\XXint\displaystyle\textstyle{#1}}%
+    {\XXint\textstyle\scriptstyle{#1}}%
+    {\XXint\scriptstyle\scriptscriptstyle{#1}}%
+    {\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+    \!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+    \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+\newcommand{\reff}{\mbox{eff}}
+\newcommand{\rR}{\mbox{R}}
+\newcommand{\rL}{\mbox{L}}
+\newcommand{\p}{\partial}
+\newcommand{\rF}{\mbox{F}}
+\newcommand{\rf}{\mbox{f}}
+\newcommand{\rc}{\mbox{c}}
+\newcommand{\rs}{\mbox{s}}
+\newcommand{\down}{\downarrow}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\rd}{\mbox{d}}
+\newcommand{\re}{\mbox{e}}
+\newcommand{\sumnn}{\sum_{\langle jk \rangle}}
+\newcommand{\rk}{\mbox{k}}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\renewcommand{\theequation}{\arabic{equation}}
+
+\usetikzlibrary{shapes.misc,decorations.pathmorphing,calc}
+\tikzset{
+  branch cut/.style={
+    decorate,decoration=snake,
+    to path={
+      (\tikztostart) -- (\tikztotarget) \tikztonodes
+    }
+  }
+}
+
+
+\begin{document}
+
+\begin{center}
+\section*{Alternating Spin Chain}
+\large
+
+On this website we provide the results of  our study of a 1D integrable spin chain whose critical behaviour is governed by a CFT possessing a continuous spectrum of scaling dimensions.
+\end{center}
+
+\section{Main Formulae}
+\begin{itemize}
+
+\item
+The subject of our interest is a spin-$\frac{1}{2}$ chain of length $2L$ governed by the Hamiltonian
+\bea
+{\mathbb H}&=&\frac{1}{\sin(2\gamma)}\
+\sum_{m=1}^{2L}\,\Big(\,2\sin^2(\gamma)\, \sigma^z_m\,\sigma^z_{m+1}- (\sigma^x_m\,\sigma^x_{m+2}+\sigma^y_m\,\sigma^y_{m+2}+
+\sigma^z_m\,\sigma^z_{m+2})\\[0.2cm]
+&+& 
+\ri\, (-1)^m\sin(\gamma)
+(\sigma^x_m\,\sigma^y_{m+1}
+-\sigma^y_m\,\sigma^x_{m+1})(\sigma^z_{m-1}-\sigma^z_{m+2})
+\,\Big)+2L\,\cot(2\gamma)\ .
+\nonumber
+\eea
+
+\item
+In order to lift degeneracies in the energy spectrum as much as possible,instead of the periodic spin chain we will consider  quasi periodic boundary conditions
+\bea
+\sigma^{\pm}_{2L+m}=\re^{\pm 2\ri\pi{\tt k}}\ \sigma^{\pm}_{m}\ ,\ \ \ \ \ \ \ \sigma^{z}_{2L+m}=\sigma^{z}_{m}\ \ \ \ \ \ \ \ \ 
+\big(\sigma^\pm\equiv\half\, (\sigma^x\pm\ri\,\sigma^y)\,\big)\ ,
+\eea
+involving the parameter ${\tt k}$ lying within the ``first Brillouin zone''
+$$-\half < {\tt k}\leq\half \ .$$
+
+\item
+The system, thus defined, can be studied using the Bethe Ansatz (BA) approach and the corresponding 
+equations read
+explicitly as\cite{Lieb:1967,Baxter:1971}
+\bea
+\bigg(\frac{\cosh(2\beta_j+\ri\gamma)}{\cosh(2\beta_j-\ri\gamma)}
+\bigg)^L=-\re^{-2\ri\pi{\tt k}}\ \prod_{m=1}^M\frac{\sinh(\beta_j-\beta_m+\ri\gamma)}{\sinh(\beta_j-\beta_m-\ri\gamma)}\ .
+\eea
+
+\item
+For a chain of given length $2L$ every solution of the BA equations 
+corresponds to an  eigenstate of the Hamiltonian (1) with energy
+\be
+E=-\sum_{j=1}^M\ \frac{4\sin(2\gamma)}{\cosh(4\beta_j)+\cos(2\gamma)}\ .
+\ee
+
+\item
+The number of Bethe roots, $M$,  is related to the total spin,
+$\frac{1}{2}\,\sum_j\,\sigma^z_j$, which turns out to be a conserved quantity 
+for the chain
+\be
+M=L-S^z\ .
+\ee
+
+\item
+The assigning of a scale dependence to the low energy stationary states is greatly facilitated by the existence of the BA equations and can be done along the following line. First of all, eq.\,(3) should be re written in logarithmic form:
+\bea
+L P(\beta_j)=2\pi\, I_j-2\pi{\tt k}-\sum_{m=1}^M \Theta(\beta_j-\beta_m)\ ,
+\eea
+where
+\bea
+P(\beta)=\frac{1}{\ri}\ \log\bigg[\frac{\cosh(\ri\gamma+2\beta)}{\cosh(\ri\gamma-2\beta)}\bigg] \ , \qquad 
+\Theta(\beta)=\frac{1}{\ri}\ \log\bigg[\frac{\sinh(\ri\gamma-\beta)}{\sinh(\ri\gamma+\beta)}\bigg]\ ,
+\eea
+while $I_j$ are the so-called Bethe numbers which are integers or half-integers for $M$ odd or even respectively. 
+
+\item
+In order to define the Bethe numbers unambiguously one should specify the branches of the multivalued
+functions (7). We do this by imposing the conditions 
+$$
+P(0)=\Theta(0)=0
+$$
+and choosing the system of branch cuts as shown in fig.\,1. It is important to mention that our analysis is restricted to the spin chain 
+with the parameter 
+\be
+0<\gamma<\frac{\pi}{2}\ .
+\ee
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\scalebox{0.9}{
+\begin{tikzpicture}
+\draw [->,thick] (-4,0) -- (4,0);
+\draw [->,thick] (0,-3) -- (0,3);
+\node at (3.5,2.6) {$\beta$};
+\draw  (3.51,2.63) circle [radius=0.3];
+\draw[thick,branch cut] (0,2.5) to (0,1);
+\draw[thick,branch cut] (0,-2.5) to (0,-1);
+\draw[black,fill=black] (0,1) circle (.5ex);
+\draw[black,fill=black] (0,-1) circle (.5ex);
+\draw[black,fill=black] (0,2.5) circle (.5ex);
+\draw[black,fill=black] (0,-2.5) circle (.5ex);
+\node at (1.2,1) {$+\tfrac{1}{2}\big(\frac{\pi}{2}-\gamma\big)$};
+\node at (1.2,2.5) {$+\tfrac{1}{2}\big(\frac{\pi}{2}+\gamma\big)$};
+\node at (-1.2,-1) {$-\tfrac{1}{2}\big(\frac{\pi}{2}-\gamma\big)$};
+\node at (-1.2,-2.5) {$-\tfrac{1}{2}\big(\frac{\pi}{2}+\gamma\big)$};
+\end{tikzpicture}
+}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+\scalebox{0.9}{
+\begin{tikzpicture}
+\draw [->,thick] (-4,0) -- (4,0);
+\draw [->,thick] (0,-3) -- (0,3);
+\node at (2.7,2.7) {$\beta$};
+\draw  (2.71,2.73) circle [radius=0.3];
+\draw[thick,branch cut] (+4,1.5) to (0,1.5);
+\draw[thick,branch cut] (-4,-1.5) to (0,-1.5);
+\draw[black,fill=black] (0,1.5) circle (.5ex);
+\draw[black,fill=black] (0,-1.5) circle (.5ex);
+\node at (-0.6,1.5) {$+\gamma$};
+\node at (0.8,-1.6) {$-\gamma$};
+\end{tikzpicture}
+}
+\end{subfigure}
+\caption{\small
+The complex $\beta$-plane displaying the branch cuts for the functions
+$P$  (left panel) and $\Theta$ (right panel) that are closest to the origin.
+Subsequent cuts are obtained by shifting this picture by $\ri\pi N$ with integer $N$.
+\label{branch1}}
+\end{figure}
+
+\item
+In this case the set of Bethe numbers corresponding to the lowest energy state in the sector with spin $S^z$ is given by
+\be
+I_j=-\tfrac{1}{2}\,(M+1)+j\ \ \ \ \ \ \ \ (j=1,2,\ldots, M)\,,
+\ee
+valid for any $L$. 
+
+\item
+It should be emphasized that the $\{I_j\}$ do not uniquely specify the solution of the BA equations. For example, in the case of the vacuum in the sector with given $S^z$ the Bethe roots are distributed along the lines $\Im m(\beta)=0,\frac{\pi}{2} \ ({\rm mod} \, \pi)$. For even $M$ the vacuum is non-degenerate and the Bethe roots are equally distributed along these lines while for $M$ odd, the vacuum is two
+fold degenerate corresponding to an excess of one of the roots with $\Im m(\beta_j)=0$ or $\frac{\pi}{2}$. In fact, the BA equations (6) with Bethe numbers as in (9)
+admit solutions such that the difference between the number of roots with
+$\Im m(\beta_j)=\frac{\pi}{2}$ and 
+$\Im m(\beta_j)=0$ is equal to $m$, where
+\be
+m=0,\,\pm2,\,\pm4,\ldots \ \ \ {\rm for} \ \ M{\rm \ even} \ , \ \ \ \ \ \ \ \ \ \ 
+m=\pm1,\,\pm3,\ldots \ \ \ {\rm for} \ \ M{\rm\  odd} \ .
+\ee
+
+\item
+Having at hand the Bethe roots, it is possible to study the scale dependence of various observables. Along with the energy $E(L)$ computed by means of eq.\,(4) we also focused on the eigenvalue of the so-called quasi-shift operator, $\mathbb{B}$. This is an important observable that commutes with the Hamiltonian and was introduced in \cite{Ikhlef:2011ay}. In terms of the Bethe roots, the eigenvalues of $\mathbb{B}$ are given by
+\bea
+B(L)=\prod_{j=1}^M\frac{\cosh(2\beta_j)-\sin(\gamma)}{\cosh(2\beta_j)+\sin(\gamma)}\  .
+\eea
+
+\item 
+It was pointed out  \cite{Ikhlef:2011ay,Candu:2013fva,Frahm:2013cma} that for large $L$ the quantity 
+\be
+s(L)= \frac{n}{4\pi}\,\log (B)
+\ee
+with
+\be
+n=\frac{\pi}{\gamma}-2>0 \nonumber
+\ee
+behaves as
+\be
+s(L)\asymp\frac{\pi m}{4\log(L)}\,.
+\ee
+Here $m$ is the difference between the number of roots with
+$\Im m (\beta_j)=\frac{\pi}{2}$ and $\Im m (\beta_j)=0$.
+
+\item
+The excitation energy of the states above the ground state turns out to be
+\bea
+\Delta E(L) = \frac{2\pi v_F}{L}\bigg(\frac{p^2+{\bar p}^2}{n+2}+\frac{2s^2}{n}\bigg) +o\big(L^{-1}\big)\,,
+\eea
+where $s=s(L)$ and the Fermi velocity reads as 
+\be
+v_{\rm F}=\frac{2(n+2)}{n}\ .
+\ee
+
+\item
+Spectroscopy of the low energy excitations of the alternating spin chain reveals another class of states which, as $L\to \infty$, flows to  conformal primaries characterized by the pair of conformal dimensions $(\bar{\Delta},{\Delta})$ with
+\be\label{cdeq1}
+\Delta=\frac{p^2}{n+2}+\frac{s^2}{n}\, , \ \ \ \ \ {\bar \Delta}=\frac{{\bar p}^2}{n+2}+\frac{s^2}{n}
+\ee
+and
+\be\label{cdeq2}
+p=\tfrac{1}{2}\,\big(S^z+({\tt k}+{\tt w})\,(n+2)\big)\, , \qquad \bar{p}=\tfrac{1}{2}\,\big(S^z-({\tt k}+{\tt w})\,(n+2)\big)\, .
+\ee
+Since the Hamiltonian is a periodic function of ${\tt k}$ the integer  ${\tt w}=\pm 1,\pm 2\ldots\ $ enumerates the different bands of the spectrum. We will refer to the corresponding states as winding states. 
+
+\end{itemize}
+
+\section{Complementary definitions}
+\begin{itemize}
+
+\item
+Another useful characteristic of the RG flow is the product 
+\be
+\Pi(L)=\prod_{j=1}^M\,\re^{4\beta_j}\ ,
+\ee
+which can be considered as the eigenvalue of an operator that appears
+naturally in the large-$\beta$ expansion of the $Q$-operator.
+
+The large-$L$ asymptotic of the eigenvalue $\Pi(L)$ is expressed in terms of $s=s(L)$.
+The relation, again valid up to powers of $L$, explicitly 
+reads as
+\be
+\Pi(L)=\Omega\ \bigg[\frac{2 L\,\Gamma\big(\frac{3}{2}+\frac{1}{n}\big)}{\sqrt{\pi}\,\Gamma\big(1+\frac{1}{n}\big)}\bigg]^{\frac{2n(\bar{p}-p)}{n+2}}\,
+\big(1+O\big((\log L)^{-\infty}\big)\big)
+\ee
+with
+\be
+\Omega= 2^{2({\bar p}-p)}\ \ 
+(n+2)^{\frac{4(\bar{p}-p)}{n+2}} \ \Bigg[\frac{\Gamma\big(1+\frac{2\bar{p}}{n+2}\big)\,\Gamma(1+2p)}
+{\Gamma\big(1+\frac{2p}{n+2}\big)\,\Gamma(1+2\bar{p})}\Bigg]^2\ 
+\ \frac{\Gamma\big(\frac{1}{2}+\bar{p}+\ri s\big)\,\Gamma\big(\frac{1}{2}+\bar{p}-\ri s\big)}
+{\Gamma\big(\frac{1}{2}+p+\ri s\big)\,\Gamma\big(\frac{1}{2}+p-\ri s\big)}\,\ 
+\ee
+and 
+\be
+p=\tfrac{1}{2}\,\big(S^z+{\tt k}\,(n+2)\big)\, , \qquad \bar{p}=\tfrac{1}{2}\,\big(S^z-{\tt k}\,(n+2)\big)\, .
+\ee
+
+\item
+The quantization condition
+\bea
+8s\  \log\bigg(\frac{2L\Gamma(\frac{3}{2}+\frac{1}{n})}{\sqrt{\pi}\Gamma(1+\frac{1}{n})}\bigg)
++\delta(s)-2\pi m=O\big((\log L)^{-\infty}\big)\ .
+\eea
+The phase shift entering the above equation is explicitly given by the formula
+\bea
+\delta(s)=\frac{16s}{n}\ \log(2)-2\ri\ \log\bigg[2^{4\ri s}
+\ \frac{\Gamma(\frac{1}{2}+p-{\ri s})\Gamma(\frac{1}{2}+{\bar p}-{\ri s})}{\Gamma(\frac{1}{2}+p+{\ri s})\Gamma(\frac{1}{2}+{\bar p}+{\ri s})}\, \bigg]
+\eea
+
+\item
+\begin{itemize}
+\item
+Integrals of Motion ???
+\item
+Formulae for $H^{(\pm)}$, $E^{(\pm)}$ ???
+\item
+Large L-behaviour ???
+\end{itemize}
+
+\end{itemize}
+
+\begin{thebibliography}{99}
+
+
+
+
+%\cite{Cardy:1986ie}
+\bibitem{Cardy:1986ie} 
+  J.~L.~Cardy,
+ ``\emph{Operator content of two-dimensional conformally invariant theories}'',
+  Nucl.\ Phys.\ B {\bf 270}, 186 (1986)
+  \href{https://www.sciencedirect.com/science/article/pii/0550321386905523} {{\ttfamily [doi:10.1016/0550-3213(86)90552-3]}}.
+  %%CITATION = doi:10.1016/0550-3213(86)90552-3;%%
+  %1215 citations counted in INSPIRE as of 28 Feb 2019
+  
+  
+  
+
+%\cite{Jacobsen:2005xz}
+\bibitem{Jacobsen:2005xz} 
+  J.~L.~Jacobsen and H.~Saleur,
+  ``\emph{The antiferromagnetic transition for the square-lattice Potts model}'',
+  Nucl.\ Phys.\ B {\bf 743}, 207 (2006)
+%  doi:10.1016/j.nuclphysb.2006.02.041
+ \href{https://arxiv.org/abs/cond-mat/0512058}{{\ttfamily [arXiv:cond-mat/0512058]}}.
+  %%CITATION = doi:10.1016/j.nuclphysb.2006.02.041;%%
+  %27 citations counted in INSPIRE as of 28 Feb 2019
+
+
+
+%\cite{Baxter:1971}
+\bibitem{Baxter:1971} 
+R.~J.~Baxter,
+``\emph{Generalized ferroelectric model on a square lattice'',}
+Studies in Applied Mathematics {\bf 50}, no.1, 51 (1971)
+ \href{https://doi.org/10.1002/sapm197150151}{[doi:10.1002/sapm197150151]}.
+
+%\cite{Baxter}
+\bibitem{Baxter}
+R.~J.~Baxter, S.~B. Kelland and F.~Y. ~Wu,
+``\emph{Equivalence of the Potts model or Whitney polynomial with
+an ice-type model}'',
+ J. Phys. A {\bf 9},
+397 (1976)
+ \href{https://iopscience.iop.org/article/10.1088/0305-4470/9/3/009}{[doi:10.1088/0305-4470/9/3/009]}.
+
+
+%\cite{Ikhlef:2008zz}
+\bibitem{Ikhlef:2008zz} 
+  Y.~Ikhlef, J.~Jacobsen and H.~Saleur,
+  ``\emph{A staggered six-vertex model with non-compact continuum limit}'',
+  Nucl.\ Phys.\ B {\bf 789}, 483 (2008) \href{https://arxiv.org/abs/cond-mat/0612037}{{\ttfamily [arXiv:cond-mat/0612037]}}.
+%  doi:10.1016/j.nuclphysb.2007.07.004
+  %%CITATION = doi:10.1016/j.nuclphysb.2007.07.004;%%
+  %21 citations counted in INSPIRE as of 06 Feb 2019
+
+
+
+
+%\cite{Ikhlef:2011ay}
+\bibitem{Ikhlef:2011ay} 
+  Y.~Ikhlef, J.~L.~Jacobsen and H.~Saleur,
+  ``\emph{An integrable spin chain for the SL(2,R)/U(1) black hole sigma model}'',
+  Phys.\ Rev.\ Lett.\  {\bf 108}, 081601 (2012) \href{https://arxiv.org/abs/1109.1119}{{\ttfamily [arXiv:1109.1119]}}.
+%  doi:10.1103/PhysRevLett.108.081601
+%  [arXiv:1109.1119 [hep-th]].
+  %%CITATION = doi:10.1103/PhysRevLett.108.081601;%%
+  %19 citations counted in INSPIRE as of 06 Feb 2019
+
+%\cite{Frahm:2012eb}                                                           
+\bibitem{Frahm:2012eb}
+  H.~Frahm and M.~J.~Martins,
+``\emph{Phase diagram of an integrable alternating $U_q[sl(2|1)]$ superspin chain}'', Nucl.\ Phys.\ B {\bf 862}, 504 (2012) \href{https://arxiv.org/abs/1202.4676}{{\ttfamily [arXiv:1202.4676]}}.
+% doi:10.1016/j.nuclphysb.2012.04.019                                          
+% [arXiv:1202.4676 [cond-mat.stat-mech]].                                      
+  %%CITATION = doi:10.1016/j.nuclphysb.2012.04.019;%%                          
+  %9 citations counted in INSPIRE as of 11 Mar 2019
+
+
+%\cite{Candu:2013fva}
+\bibitem{Candu:2013fva} 
+  C.~Candu and Y.~Ikhlef,
+ ``\emph{Nonlinear integral equations for the SL(2,R)/U(1) black hole sigma model}'',
+ J.\ Phys.\ A {\bf 46}, 415401 (2013) \href{https://arxiv.org/abs/1306.2646}{{\ttfamily [arXiv:1306.2646]}}.
+%  doi:10.1088/1751-8113/46/41/415401
+ %[arXiv:1306.2646 [hep-th]].
+  %%CITATION = doi:10.1088/1751-8113/46/41/415401;%%
+  %6 citations counted in INSPIRE as of 06 Feb 2019
+
+
+
+%\cite{Frahm:2013cma}
+\bibitem{Frahm:2013cma} 
+  H.~Frahm and A.~Seel,
+  ``\emph{The staggered six-vertex model: conformal invariance and corrections to scaling}'',
+  Nucl.\ Phys.\ B {\bf 879}, 382 (2014) \href{https://arxiv.org/abs/1311.6911}{{\ttfamily [arXiv:1311.6911]}}.
+ % doi:10.1016/j.nuclphysb.2013.12.015
+ % [arXiv:1311.6911 [cond-mat.stat-mech]].
+  %%CITATION = doi:10.1016/j.nuclphysb.2013.12.015;%%
+  %4 citations counted in INSPIRE as of 06 Feb 2019
+
+%\cite{Lieb:1967}
+\bibitem{Lieb:1967}
+E.~ H.~Lieb, ``\emph{Residual entropy of square ice'',}
+Phys. Rev. {\bf 162}, no.1, 162 (1967).
+ \href{https://journals.aps.org/pr/abstract/10.1103/PhysRev.162.162}{{\ttfamily [doi:10.1103/PhysRev.162.162]}}.
+
+    
+\end{thebibliography}
+\end{document}
