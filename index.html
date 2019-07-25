@@ -10,11 +10,19 @@
     <title>The alternating spin chain</title>
     <link rel="stylesheet" href="w3.css">
   </head>
-
+  <style>
+  div.ex2 { 
+	  max-width:700px;
+	  margin:   32px;
+	  border: 3px solid #73AD21;
+	  padding: 32px
+  }
+  </style>
   <body>
-    <h1 align = "center">Conventions:</h1>
-     <div class="w3-container">
-
+         <div class="ex2">
+             <h2 align = "center">Definitions and conventions:</h2>
+	     <p>	     
+	     The alternating spin chain of length \(2L\) is governed by the Hamiltonian
      $$\begin{eqnarray}
      {\mathbb H}&=&\frac{1}{\sin(2\gamma)}\ \sum_{m=1}^{2L}\,
      \Big(\,2\sin^2(\gamma)\, \sigma^z_{m\vphantom{+1}}\,\sigma^z_{m+1}- (\sigma^x_{m\vphantom{+1}}\,
@@ -25,21 +33,30 @@
      \sigma^x_{m+1\vphantom{+1}})(\sigma^z_{m-1\vphantom{+1}}-\sigma^z_{m+2\vphantom{+1}})
      \,\Big)+2L\,\cot(2\gamma)
      \end{eqnarray}$$ 	     
+      Here the matrices \(\sigma_m^a\) with \((a=x,y,z)\) stand for the usual Pauli matrices acting
+      on site \(m\). Instead of periodic boundary conditions, the quasi periodic boundary conditions
+      are considered
      $$
      \sigma^{\pm}_{2L+m}={\rm e}^{\pm 2{\rm i}\pi{\tt k}}\ \sigma^{\pm}_{m}\ ,
      \qquad \sigma^{z}_{2L+m}=\sigma^{z}_{m\vphantom{+1}} \qquad 
      \big(\sigma^\pm\equiv\tfrac{1}{2}\, (\sigma^x\pm{\rm i}\,\sigma^y)\,\big)\ ,
      $$
+      with the parameter \({\tt k}\) lying within the ``first Brillouin zone''.
      $$
      -\tfrac{1}{2}<{\tt k}\leq\tfrac{1}{2} 
      $$
+      The system, thus defined, turns out to be integrable. Its solution is 
+      obtained using the Bethe anstaz approach, and the corresponding equations
+      read explicitly as
      $$
 	  \bigg(\frac{\cosh(2\beta_j+{\rm i}\gamma)}{\cosh(2\beta_j-{\rm i}\gamma)}\bigg)^L=
 	  -{\rm e}^{-2{\rm i}\pi{\tt k}}\ 
 	  \prod_{m=1}^M\frac{\sinh(\beta_j-\beta_m+{\rm i}\gamma)}{\sinh(\beta_j-\beta_m-{\rm i}\gamma)}
      $$
-
-
+      The number of Bethe roots, \(M\), is related to the total spin, \(\frac{1}{2}\sum_j\sigma^z_j\),
+      which is a conserved quantity for the chain
+      $$M=L-S^z\ .$$
+      </p>
      </div>
   </body>
 
