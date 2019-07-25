@@ -14,11 +14,32 @@
   <body>
     <h1>The alternating spin chain</h1>
      <div class="w3-container">
-$$\begin{eqnarray}
-{\mathbb H}&=&\frac{1}{\sin(2\gamma)}\
-\sum_{m=1}^{2L}\,\Big(\,2\sin^2(\gamma)\, \sigma^z_{m\vphantom{+1}}\,\sigma^z_{m+1}- (\sigma^x_{m\vphantom{+1}}\,\sigma^x_{m+2}+\sigma^y_{m\vphantom{+1}}\,\sigma^y_{m+2}+
-\sigma^z_{m\vphantom{+1}}\,\sigma^z_{m+2})
-\end{eqnarray}$$
+
+     $$\begin{eqnarray}
+     {\mathbb H}&=&\frac{1}{\sin(2\gamma)}\ \sum_{m=1}^{2L}\,
+     \Big(\,2\sin^2(\gamma)\, \sigma^z_{m\vphantom{+1}}\,\sigma^z_{m+1}- (\sigma^x_{m\vphantom{+1}}\,
+     \sigma^x_{m+2}+\sigma^y_{m\vphantom{+1}}\,\sigma^y_{m+2}+
+     \sigma^z_{m\vphantom{+1}}\,\sigma^z_{m+2})\\[0.2cm]
+     &+&{\rm i}\, (-1)^m\sin(\gamma)(\sigma^x_{m\vphantom{+1}}\,\sigma^y_{m+1\vphantom{+1}}
+     -\sigma^y_{m\vphantom{+1}}\,
+     \sigma^x_{m+1\vphantom{+1}})(\sigma^z_{m-1\vphantom{+1}}-\sigma^z_{m+2\vphantom{+1}})
+     \,\Big)+2L\,\cot(2\gamma)
+     \end{eqnarray}$$ 	     
+     $$
+     \sigma^{\pm}_{2L+m}={\rm e}^{\pm 2{\rm i}\pi{\tt k}}\ \sigma^{\pm}_{m}\ ,
+     \qquad \sigma^{z}_{2L+m}=\sigma^{z}_{m\vphantom{+1}} \qquad 
+     \big(\sigma^\pm\equiv\tfrac{1}{2}\, (\sigma^x\pm{\rm i}\,\sigma^y)\,\big)\ ,
+     $$
+     $$
+     -\tfrac{1}{2}<{\tt k}\leq\tfrac{1}{2} 
+     $$
+     $$
+	  \bigg(\frac{\cosh(2\beta_j+{\rm i}\gamma)}{\cosh(2\beta_j-{\rm i}\gamma)}\bigg)^L=
+	  -{\rm e}^{-2{\rm i}\pi{\tt k}}\ 
+	  \prod_{m=1}^M\frac{\sinh(\beta_j-\beta_m+{\rm i}\gamma)}{\sinh(\beta_j-\beta_m-{\rm i}\gamma)}
+     $$
+
+
      </div>
   </body>
 
