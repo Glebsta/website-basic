@@ -9,16 +9,75 @@
     
     <title>The alternating spin chain</title>
     <link rel="stylesheet" href="w3.css">
+
+
+
+
+
+
+
+
+
+
   </head>
   <style>
   div.ex2 { 
 	  max-width:700px;
-	  margin:   32px;
+	  margin:   300px;
 	  border: 3px solid #73AD21;
 	  padding: 32px
   }
+ 
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #000000;
+  display: block;
+}
+
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
   </style>
   <body>
+
+
+<div class="sidenav">
+  <a href="#page1">Main page</a>
+  <a href="#page2">Bethe states - vacua</a>
+  <a href="#page3">Bethe states - excited</a>
+  <a href="#page4">Relation to six-vertex model</a>
+</div>
+
+
          <div class="ex2">
              <h2 align = "center">Definitions and conventions:</h2>
 	     <p>	     
